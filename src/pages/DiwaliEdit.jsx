@@ -165,8 +165,8 @@ class DiwaliEdit extends Component {
 
     if (navigator.canShare) {
       await navigator.share({
-        title: "Appopener",
-        text: "Happy Diwali !",
+        // title: "Appopener",
+        // text: "Happy Diwali !",
         url: `${window.location.origin}/wish/${docId}`,
       });
     } else {
