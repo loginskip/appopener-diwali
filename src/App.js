@@ -9,6 +9,7 @@ const Splashpage = lazy(() => import("./pages/Splash"));
 const Testpage = lazy(() => import("./pages/test"));
 const Dashboard_home = lazy(() => import("./dashboard/homepage"));
 const DiwaliPage = lazy(() => import("./pages/Diwali"));
+const DiwaliEditPage = lazy(() => import("./pages/DiwaliEdit"));
 const SharedCardPage = lazy(() => import("./pages/SharedCard"));
 // const Ads = lazy(() => import('./components/GoogleAd') );
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
@@ -35,7 +36,8 @@ function App() {
             component={Splashpage}
           ></Route> */}
 
-          <Route exact path="/diwali/:id/:name" component={SharedCardPage} />
+          <Route exact path="/wish/:id" component={SharedCardPage} />
+          <Route exact path="/diwali/:name" component={DiwaliEditPage} />
           <Route exact path="/:apptype/:shorturl" component={DiwaliPage} />
           <Route exact path="/user" component={Testpage}></Route>
           <Route exact path="/privacypolicy" component={PrivacyPolicy}></Route>

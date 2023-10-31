@@ -1,6 +1,9 @@
 import classes from "../components/Styles.module.css";
 import { Link } from "react-router-dom";
-// import DiwaliCard from "../assets/diwali_card.jpg";
+import { getDoc, doc } from "firebase/firestore";
+import { ref, getDownloadURL } from "firebase/storage";
+import { db, storage } from "../components/Firebase";
+import { useEffect, useState } from "react";
 
 import DiwaliCard1 from "../assets/diwali_card.jpg";
 import DiwaliCard2 from "../assets/diwali_card_2.jpg";
@@ -15,27 +18,52 @@ const imagesList = [
 ];
 
 export default function SharedCard(params) {
-  const name = params.match.params.name;
-  const imageId = parseInt(params.match.params.id);
+  const userId = params.match.params.id;
 
-  let setectedImage;
-
-  imagesList.forEach((e) => {
-    if (e.id === imageId) {
-      setectedImage = e;
-    }
+  const [userData, setUserData] = useState({
+    name: "",
+    card: 0,
+    userImage: "",
   });
+  const [userImageFile, setUserImageFile] = useState();
+
+  useEffect(() => {
+    async function getUserData() {
+      try {
+        const res = await getDoc(doc(db, "users", userId));
+        const data = res.data();
+        setUserData(data);
+        if (data.userImage.length) {
+          const storageRef = ref(storage, `images/${data.userImage}`);
+          const imageUrl = await getDownloadURL(storageRef);
+          setUserImageFile(imageUrl);
+        }
+      } catch (error) {
+        console.log("getting user data error");
+      }
+    }
+
+    getUserData();
+  }, [userId]);
 
   return (
     <>
       <div className={classes.diwali_page}>
-        {name && (
+        {userData?.name && (
           <div className={classes.send_container}>
             <div className={classes.diwali_card}>
               <div id="diwaliCard" className={classes.card_container}>
-                <img src={setectedImage.imgUrl} alt="" />
-                <div className={classes.card_content}>
-                  <p className={classes.nameOnCard}>{name}</p>
+                {userImageFile && (
+                  <div className={classes.user_image_container}>
+                    <img src={userImageFile} alt="" />
+                  </div>
+                )}
+                <img src={imagesList[userData?.card - 1].imgUrl} alt="" />
+                <div
+                  className={classes.card_content}
+                  style={{ top: userImageFile ? "20vh" : "18vh" }}
+                >
+                  <p className={classes.nameOnCard}>{userData?.name}</p>
                   <p className={classes.wishes}>Wishes you</p>
                   <p className={classes.happy}>HAPPY</p>
                   <p className={classes.diwali}>Diwali</p>
@@ -46,7 +74,7 @@ export default function SharedCard(params) {
                   </p>
                 </div>
                 <div className={classes.send_button}>
-                  <Link to="/:apptype/:shorturl">
+                  <Link to={`/diwali/${userData?.name}`}>
                     <button>Send Wishes</button>
                   </Link>
                 </div>
