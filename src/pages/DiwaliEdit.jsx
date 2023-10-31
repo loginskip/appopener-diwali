@@ -125,7 +125,7 @@ class DiwaliEdit extends Component {
   userImageChange(e) {
     const file = e.target.files[0];
     if (file) {
-      if (file.size <= 100 * 1024) {
+      // if (file.size <= 100 * 1024) {
         this.setState({ userImage: file });
         const reader = new FileReader();
         reader.onload = () => {
@@ -133,7 +133,7 @@ class DiwaliEdit extends Component {
           this.setState({ imageBlob: blob });
         };
         reader.readAsArrayBuffer(file);
-      }
+      // }
     }
   }
 
