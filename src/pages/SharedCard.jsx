@@ -54,8 +54,14 @@ export default function SharedCard(params) {
             <div className={classes.diwali_card}>
               <div id="diwaliCard" className={classes.card_container}>
                 {userImageFile && (
-                  <div className={classes.user_image_container}>
-                    <div className={classes.image_Cont}>
+                  <div
+                    className={classes.user_image_container}
+                    style={{ top: "15vh" }}
+                  >
+                    <div
+                      className={classes.image_Cont}
+                      style={{ width: "60px", height: "60px" }}
+                    >
                       <img src={userImageFile} alt="" />
                     </div>
                   </div>
@@ -63,7 +69,7 @@ export default function SharedCard(params) {
                 <img src={imagesList[userData?.card - 1].imgUrl} alt="" />
                 <div
                   className={classes.card_content}
-                  style={{ top: userImageFile ? "20vh" : "18vh" }}
+                  style={{ top: userImageFile ? "22vh" : "18vh" }}
                 >
                   <p className={classes.nameOnCard}>{userData?.name}</p>
                   <p className={classes.wishes}>Wishes you</p>
