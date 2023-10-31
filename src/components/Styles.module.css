@@ -1014,7 +1014,7 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
 .user_image_container {
   width: 100%;
   position: absolute;
-  top: 9vh;
+  top: 8vh;
   display: flex;
   justify-content: center;
   align-items: center;

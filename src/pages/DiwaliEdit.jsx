@@ -246,7 +246,7 @@ class DiwaliEdit extends Component {
                       <div
                         className={classes.card_content}
                         style={{
-                          top: this.state.imageBlob ? "130px" : "120px",
+                          top: this.state.imageBlob ? "120px" : "100px",
                         }}
                       >
                         <p className={classes.nameOnCard}>
