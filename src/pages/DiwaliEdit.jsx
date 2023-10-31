@@ -140,13 +140,13 @@ class DiwaliEdit extends Component {
   async handleImageUpload() {
     const file = this.state.userImage;
     if (file) {
-      if (file.size <= 100 * 1024) {
+      // if (file.size <= 100 * 1024) {
         const id = nanoid();
         const storageRef = ref(storage, `images/${id}`);
         await uploadBytes(storageRef, file);
 
         return id;
-      }
+      // }
     }
   }
 
