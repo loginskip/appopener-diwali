@@ -126,13 +126,13 @@ class DiwaliEdit extends Component {
     const file = e.target.files[0];
     if (file) {
       // if (file.size <= 100 * 1024) {
-        this.setState({ userImage: file });
-        const reader = new FileReader();
-        reader.onload = () => {
-          const blob = new Blob([reader.result], { type: file.type });
-          this.setState({ imageBlob: blob });
-        };
-        reader.readAsArrayBuffer(file);
+      this.setState({ userImage: file });
+      const reader = new FileReader();
+      reader.onload = () => {
+        const blob = new Blob([reader.result], { type: file.type });
+        this.setState({ imageBlob: blob });
+      };
+      reader.readAsArrayBuffer(file);
       // }
     }
   }
@@ -141,11 +141,11 @@ class DiwaliEdit extends Component {
     const file = this.state.userImage;
     if (file) {
       // if (file.size <= 100 * 1024) {
-        const id = nanoid();
-        const storageRef = ref(storage, `images/${id}`);
-        await uploadBytes(storageRef, file);
+      const id = nanoid();
+      const storageRef = ref(storage, `images/${id}`);
+      await uploadBytes(storageRef, file);
 
-        return id;
+      return id;
       // }
     }
   }
@@ -234,17 +234,19 @@ class DiwaliEdit extends Component {
                     <div id="diwaliCard" className={classes.card_container}>
                       {this.state.imageBlob && (
                         <div className={classes.user_image_container}>
-                          <img
-                            src={URL.createObjectURL(this.state.imageBlob)}
-                            alt=""
-                          />
+                          <div className={classes.image_Cont} >
+                            <img
+                              src={URL.createObjectURL(this.state.imageBlob)}
+                              alt=""
+                            />
+                          </div>
                         </div>
                       )}
                       <img src={this.state.selectedImg.imgUrl} alt="" />
                       <div
                         className={classes.card_content}
                         style={{
-                          top: this.state.imageBlob ? "140px" : "120px",
+                          top: this.state.imageBlob ? "130px" : "120px",
                         }}
                       >
                         <p className={classes.nameOnCard}>
