@@ -34,7 +34,7 @@ class DiwaliEdit extends Component {
       userImage: "",
       imageID: "",
       imageBlob: "",
-      isEdit: true,
+      isEdit: false,
       isImageSizeError: false,
     };
     this.handleCardCreation = this.handleCardCreation.bind(this);
