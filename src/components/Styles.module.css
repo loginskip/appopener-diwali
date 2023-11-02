@@ -855,6 +855,7 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
 }
 .diwali_page .redirect_box p {
   text-align: center;
+  font-family: "Montserrat Alternates";
 }
 .diwali_page .redirect_box a {
   text-decoration: underline;
