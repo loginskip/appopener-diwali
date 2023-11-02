@@ -13,7 +13,7 @@ class HappyDiwali extends Component {
         style={{ paddingBottom: "3rem", backgroundColor: "#bde0fe" }}
       >
         <GenerateDiwaliCard />
-        <GoogleAd slot="6109298143" googleAdId="ca-pub-5645705217995911" />
+        
       </div>
     );
   }
