@@ -82,7 +82,7 @@ export default function SharedCard(params) {
                   </p>
                 </div>
                 <div className={classes.send_button}>
-                  <Link to={`/diwali/${userData?.name}`}>
+                  <Link to={`/happydiwali/}`}>
                     <button>Send Wishes</button>
                   </Link>
                 </div>
