@@ -37,6 +37,7 @@ class GenerateDiwaliCard extends Component {
           <img className={classes.logo} src={logo} alt="Logo" />
           <p>APPOPENER</p>
         </div>
+        
         <div className={classes.card_form_container}>
           <div
             className={classes.card_form}
@@ -57,6 +58,9 @@ class GenerateDiwaliCard extends Component {
             </form>
           </div>
         </div>
+
+        <GoogleAd slot="6109298143" googleAdId="ca-pub-5645705217995911" />
+        
       </>
     );
   }
