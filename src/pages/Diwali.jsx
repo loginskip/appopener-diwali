@@ -4,7 +4,7 @@ import classes from "../components/Styles.module.css";
 import { getURLandredirect } from "../helper/api";
 import "../css/splash.css";
 
-import logo from "../assets/logo.avif";
+import GenerateDiwaliCard from "../components/GenerateDiwaliCard";
 
 class Diwali extends Component {
   constructor(props) {
@@ -13,10 +13,7 @@ class Diwali extends Component {
       intentvalue: "",
       original_url: "",
       ostype: "",
-      cardName: "",
     };
-    this.handleCardCreation = this.handleCardCreation.bind(this);
-    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -45,44 +42,13 @@ class Diwali extends Component {
     });
   }
 
-  handleChange(e) {
-    this.setState({ cardName: e.target.value });
-  }
-
-  handleCardCreation(e) {
-    e.preventDefault();
-    if (this.state.cardName.length) {
-      window.open(
-        `${window.location.origin}/diwali/${this.state.cardName}`,
-        "_blank"
-      );
-      this.setState({ cardName: "" });
-    }
-  }
-
   render() {
     return (
-      <div className={classes.diwali_page} style={{ paddingBottom: "3rem" }}>
-        <div className={classes.logo_container}>
-          <img className={classes.logo} src={logo} alt="Logo" />
-          <p>APPOPENER</p>
-        </div>
-        <div className={classes.card_form_container}>
-          <div className={classes.card_form}>
-            <h3>Generate Diwali Card</h3>
-            <form onSubmit={this.handleCardCreation}>
-              <input
-                type="text"
-                placeholder="Enter your name"
-                value={this.state.cardName}
-                onChange={this.handleChange}
-              />
-              <div className={classes.button_container}>
-                <button>Generate</button>
-              </div>
-            </form>
-          </div>
-        </div>
+      <div
+        className={classes.diwali_page}
+        style={{ paddingBottom: "3rem", backgroundColor: "#bde0fe" }}
+      >
+        <GenerateDiwaliCard />
         <div className={classes.redirect_box}>
           <p>If redirect dont't occur</p>
           <a id="abcd" target="_blank" style={{ cursor: "pointer" }}>

@@ -7,11 +7,13 @@ import { db, storage } from "../components/Firebase";
 import { ref, uploadBytes } from "firebase/storage";
 import { addDoc, collection } from "firebase/firestore";
 import { customAlphabet } from "nanoid";
+import Modal from "react-awesome-modal";
 
 import DiwaliCard1 from "../assets/diwali_card.jpg";
 import DiwaliCard2 from "../assets/diwali_card_2.jpg";
 import DiwaliCard3 from "../assets/diwali_card_3.jpg";
 import DiwaliCard4 from "../assets/diwali_card_4.jpg";
+import { FaTimesCircle } from "react-icons/fa";
 
 const imagesList = [
   { id: 1, imgUrl: DiwaliCard1 },
@@ -32,7 +34,8 @@ class DiwaliEdit extends Component {
       userImage: "",
       imageID: "",
       imageBlob: "",
-      isEdit: false,
+      isEdit: true,
+      isImageSizeError: false,
     };
     this.handleCardCreation = this.handleCardCreation.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -125,6 +128,7 @@ class DiwaliEdit extends Component {
   userImageChange(e) {
     const file = e.target.files[0];
     if (file) {
+      console.log("size", file.size);
       if (file.size <= 3 * 1024 * 1024) {
         this.setState({ userImage: file });
         const reader = new FileReader();
@@ -133,6 +137,9 @@ class DiwaliEdit extends Component {
           this.setState({ imageBlob: blob });
         };
         reader.readAsArrayBuffer(file);
+      } else {
+        this.setState({ isImageSizeError: true });
+        e.target.value = null;
       }
     }
   }
@@ -190,15 +197,58 @@ class DiwaliEdit extends Component {
     downloadLink.click();
   }
 
+  closeErrorModal() {
+    this.setState({ isImageSizeError: false });
+  }
+
   render() {
+    let max_image = <div></div>;
+    if (this.state.isImageSizeError) {
+      console.log("called");
+      max_image = (
+        <Modal
+          style={{ position: "absolute" }}
+          visible={this.state.isImageSizeError}
+          width="400"
+          height="100"
+          effect="fadeInDown"
+          position="absolute"
+          onClickAway={() => this.closeErrorModal()}
+        >
+          <div className="modal-content" style={{ border: "0" }}>
+            <div className="modal-header text-center">
+              <h5 className="modal-title">Image upload errror</h5>
+              <a
+                href="javascript:void(0);"
+                onClick={() => this.closeErrorModal()}
+              >
+                <FaTimesCircle size="25px" />
+              </a>
+            </div>
+            <div className="modal-body">
+              <center>
+                <p>Photo accepted max size 3Mb</p>
+              </center>
+            </div>
+          </div>
+        </Modal>
+      );
+    } else {
+      max_image = <div></div>;
+    }
+
     return (
       <div
         className={classes.diwali_page}
-        style={{ paddingBottom: this.state.isEdit && "3rem" }}
+        style={{
+          paddingBottom: this.state.isEdit && "3rem",
+          backgroundColor: "#f8b4ba",
+        }}
         onTouchStart={this.handleTouchStart}
         onTouchMove={this.handleTouchMove}
         onTouchEnd={this.handleTouchEnd}
       >
+        {max_image}
         {this.state.isEdit && (
           <div className={classes.card_form_container}>
             <div className={classes.card_form}>
@@ -213,7 +263,11 @@ class DiwaliEdit extends Component {
                   value={this.state.cardName}
                   onChange={this.handleChange}
                 />
-                <input type="file" onChange={this.userImageChange} />
+                <input
+                  type="file"
+                  onChange={this.userImageChange}
+                  accept=".jpg, .jpeg, .png"
+                />
                 <div className={classes.button_container}>
                   <button>Generate</button>
                 </div>

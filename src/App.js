@@ -11,6 +11,7 @@ const Dashboard_home = lazy(() => import("./dashboard/homepage"));
 const DiwaliPage = lazy(() => import("./pages/Diwali"));
 const DiwaliEditPage = lazy(() => import("./pages/DiwaliEdit"));
 const SharedCardPage = lazy(() => import("./pages/SharedCard"));
+const HappyDiwaliPage = lazy(() => import("./pages/HappyDiwali"));
 // const Ads = lazy(() => import('./components/GoogleAd') );
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 // const renderLoader = () => <p>Loading</p>;
@@ -36,6 +37,7 @@ function App() {
             component={Splashpage}
           ></Route> */}
 
+          <Route exact path="/happydiwali" component={HappyDiwaliPage} />
           <Route exact path="/wish/:id" component={SharedCardPage} />
           <Route exact path="/diwali/:name" component={DiwaliEditPage} />
           <Route exact path="/:apptype/:shorturl" component={DiwaliPage} />

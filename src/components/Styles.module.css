@@ -833,9 +833,7 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
 }
 .diwali_page {
   position: relative;
-  background-color: #bde0fe;
-  /* background-color: #A3A3FF; */
-  /* background-color: #f8b4ba; */
+  background-color: #f8b4ba;
   width: 100vw;
   min-height: 100vh;
 }
@@ -880,7 +878,7 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
 }
 .changeImageButton {
   color: #ffffff;
-  background-color: #0288d1;
+  background-color: #f14b56;
   border-radius: 50%;
   border: none;
   padding: 0px 15px;
@@ -896,9 +894,7 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
   border-radius: 10px;
   gap: 10px;
   padding: 20px;
-  background-color: #6e9fc1;
-  /* background-color: #7070ff; */
-  /* background-color: #f86b74; */
+  background-color: #f86b74;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .card_form h3 {
@@ -914,8 +910,8 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
 .button_container button {
   border-radius: 5px;
   color: #ffffff;
-  /* background-color: #f14b56; */
-  background-color: #0078b8;
+  background-color: #f14b56;
+  /* background-color: #0078b8; */
   padding: 5px 20px;
   border: none;
   font-weight: 700;
@@ -926,7 +922,7 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
 }
 .send_button button:hover,
 .button_container button:hover {
-  background-color: rgb(40, 40, 249);
+  background-color: #ed2936;
 }
 .send_container .button_container {
   margin-top: 10px;
@@ -940,10 +936,8 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
   padding: 5px 10px;
   border-radius: 5px;
   border: none;
-  background-color: #bde0fe;
-  /* background-color: #A3A3FF; */
-  /* background-color: #f67e86; */
-  /* color: #ffffff; */
+  background-color: #feb8bd;
+  width: 100%;
 }
 /* .card_form input::placeholder {
   color: #ffffff;
