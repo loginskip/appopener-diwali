@@ -833,7 +833,9 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
 }
 .diwali_page {
   position: relative;
-  background-color: #f8b4ba;
+  background-color: #bde0fe;
+  /* background-color: #A3A3FF; */
+  /* background-color: #f8b4ba; */
   width: 100vw;
   min-height: 100vh;
 }
@@ -843,6 +845,13 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
 }
 .diwali_page .redirect_box {
   text-align: center;
+  position: fixed;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
 }
 .diwali_page .redirect_box p {
   text-align: center;
@@ -862,6 +871,7 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
   align-items: center;
   margin-bottom: 2rem;
 }
+
 .card_main {
   display: flex;
   align-items: center;
@@ -870,7 +880,7 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
 }
 .changeImageButton {
   color: #ffffff;
-  background-color: #f14b56;
+  background-color: #0288d1;
   border-radius: 50%;
   border: none;
   padding: 0px 15px;
@@ -886,7 +896,9 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
   border-radius: 10px;
   gap: 10px;
   padding: 20px;
-  background-color: #f86b74;
+  background-color: #6e9fc1;
+  /* background-color: #7070ff; */
+  /* background-color: #f86b74; */
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .card_form h3 {
@@ -903,7 +915,7 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
   border-radius: 5px;
   color: #ffffff;
   /* background-color: #f14b56; */
-  background-color: red;
+  background-color: #0078b8;
   padding: 5px 20px;
   border: none;
   font-weight: 700;
@@ -914,7 +926,7 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
 }
 .send_button button:hover,
 .button_container button:hover {
-  background-color: #ec333f;
+  background-color: rgb(40, 40, 249);
 }
 .send_container .button_container {
   margin-top: 10px;
@@ -928,12 +940,14 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
   padding: 5px 10px;
   border-radius: 5px;
   border: none;
-  background-color: #f67e86;
-  color: #ffffff;
+  background-color: #bde0fe;
+  /* background-color: #A3A3FF; */
+  /* background-color: #f67e86; */
+  /* color: #ffffff; */
 }
-.card_form input::placeholder {
+/* .card_form input::placeholder {
   color: #ffffff;
-}
+} */
 .button_container {
   display: flex;
   justify-content: center;
@@ -1014,7 +1028,7 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
 .user_image_container {
   width: 100%;
   position: absolute;
-  top: 8vh;
+  top: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1030,6 +1044,17 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
   object-fit: cover;
   width: 100%;
   height: 100%;
+}
+.logo_container {
+  padding-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.logo_container p{
+  font-size: 25px;
+  font-weight: 600;
 }
 
 /*Media css */
@@ -1233,8 +1258,11 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
     line-height: 52px;
   }
   .card_form {
-    width: 350px;
+    width: 95%;
   }
+  /* .card_form input{
+    width: 100%;
+  } */
 
   .diwali_card {
     padding: 0;
@@ -1246,6 +1274,7 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
   .send_container .card_container {
     width: 100vw;
     height: 100vh;
+    min-height: 800px;
   }
   .card_container {
     width: 250px;
@@ -1306,7 +1335,7 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
   }
   .send_container .message {
     font-size: 16px;
-    padding: 0 45px;
+    padding: 0 50px;
     margin-top: 30px;
     line-height: 16px;
   }
@@ -1433,14 +1462,14 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
   transform: translateY(0px);
   animation: happyAnimation 0.7s ease-in-out forwards;
   animation-delay: 0.5s;
-  opacity: 0;
+  /* opacity: 0; */
 }
 
 .send_container .diwali {
   transform: translateY(0px);
   animation: diwaliAnimation 1s ease-in-out forwards;
   animation-delay: 0.5s;
-  opacity: 0;
+  /* opacity: 0; */
 }
 
 @keyframes nameOnCardAnimation {

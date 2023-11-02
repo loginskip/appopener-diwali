@@ -4,6 +4,8 @@ import classes from "../components/Styles.module.css";
 import { getURLandredirect } from "../helper/api";
 import "../css/splash.css";
 
+import logo from "../assets/logo.avif";
+
 class Diwali extends Component {
   constructor(props) {
     super(props);
@@ -61,13 +63,10 @@ class Diwali extends Component {
   render() {
     return (
       <div className={classes.diwali_page} style={{ paddingBottom: "3rem" }}>
-        <div className={classes.redirect_box}>
-          <p>If redirect dont't occur</p>
-          <a id="abcd" target="_blank" style={{ cursor: "pointer" }}>
-            Click here
-          </a>
+        <div className={classes.logo_container}>
+          <img className={classes.logo} src={logo} alt="Logo" />
+          <p>APPOPENER</p>
         </div>
-
         <div className={classes.card_form_container}>
           <div className={classes.card_form}>
             <h3>Generate Diwali Card</h3>
@@ -83,6 +82,12 @@ class Diwali extends Component {
               </div>
             </form>
           </div>
+        </div>
+        <div className={classes.redirect_box}>
+          <p>If redirect dont't occur</p>
+          <a id="abcd" target="_blank" style={{ cursor: "pointer" }}>
+            Click here
+          </a>
         </div>
       </div>
     );

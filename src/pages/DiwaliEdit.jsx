@@ -125,28 +125,28 @@ class DiwaliEdit extends Component {
   userImageChange(e) {
     const file = e.target.files[0];
     if (file) {
-      // if (file.size <= 100 * 1024) {
-      this.setState({ userImage: file });
-      const reader = new FileReader();
-      reader.onload = () => {
-        const blob = new Blob([reader.result], { type: file.type });
-        this.setState({ imageBlob: blob });
-      };
-      reader.readAsArrayBuffer(file);
-      // }
+      if (file.size <= 3 * 1024 * 1024) {
+        this.setState({ userImage: file });
+        const reader = new FileReader();
+        reader.onload = () => {
+          const blob = new Blob([reader.result], { type: file.type });
+          this.setState({ imageBlob: blob });
+        };
+        reader.readAsArrayBuffer(file);
+      }
     }
   }
 
   async handleImageUpload() {
     const file = this.state.userImage;
     if (file) {
-      // if (file.size <= 100 * 1024) {
-      const id = nanoid();
-      const storageRef = ref(storage, `images/${id}`);
-      await uploadBytes(storageRef, file);
+      if (file.size <= 3 * 1024 * 1024) {
+        const id = nanoid();
+        const storageRef = ref(storage, `images/${id}`);
+        await uploadBytes(storageRef, file);
 
-      return id;
-      // }
+        return id;
+      }
     }
   }
 
@@ -202,11 +202,14 @@ class DiwaliEdit extends Component {
         {this.state.isEdit && (
           <div className={classes.card_form_container}>
             <div className={classes.card_form}>
-              <h3>Generate Diwali Card</h3>
-              <form onSubmit={this.handleCardCreation}>
+              <h3>Edit Your Diwali Card</h3>
+              <form
+                onSubmit={this.handleCardCreation}
+                style={{ padding: "0 1rem" }}
+              >
                 <input
                   type="text"
-                  placeholder="Enter your name"
+                  placeholder="Edit your name"
                   value={this.state.cardName}
                   onChange={this.handleChange}
                 />
@@ -234,7 +237,7 @@ class DiwaliEdit extends Component {
                     <div id="diwaliCard" className={classes.card_container}>
                       {this.state.imageBlob && (
                         <div className={classes.user_image_container}>
-                          <div className={classes.image_Cont} >
+                          <div className={classes.image_Cont}>
                             <img
                               src={URL.createObjectURL(this.state.imageBlob)}
                               alt=""
@@ -277,10 +280,9 @@ class DiwaliEdit extends Component {
                       <img src={this.state.selectedImg.imgUrl} alt="" />
                       <div
                         className={classes.card_content}
-                        style={{ top: "18vh" }}
+                        style={{ top: "18%" }}
                       >
                         <p className={classes.nameOnCard}>
-                          {" "}
                           {this.state.nameOncard}
                         </p>
                         <p className={classes.wishes}>Wishes you</p>
@@ -294,7 +296,7 @@ class DiwaliEdit extends Component {
                       </div>
                       <div className={classes.send_button}>
                         <button onClick={this.handleCardShare}>Share</button>
-                        <button onClick={this.handleEdit}>Edit</button>
+                        <button onClick={this.handleEdit}>Add Image</button>
                         <button onClick={this.handleCardDownload}>
                           Download
                         </button>

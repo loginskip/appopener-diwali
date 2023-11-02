@@ -56,7 +56,7 @@ export default function SharedCard(params) {
                 {userImageFile && (
                   <div
                     className={classes.user_image_container}
-                    style={{ top: "15vh" }}
+                    style={{ top: "15%" }}
                   >
                     <div
                       className={classes.image_Cont}
@@ -69,7 +69,7 @@ export default function SharedCard(params) {
                 <img src={imagesList[userData?.card - 1].imgUrl} alt="" />
                 <div
                   className={classes.card_content}
-                  style={{ top: userImageFile ? "22vh" : "18vh" }}
+                  style={{ top: userImageFile ? "23%" : "18%" }}
                 >
                   <p className={classes.nameOnCard}>{userData?.name}</p>
                   <p className={classes.wishes}>Wishes you</p>
