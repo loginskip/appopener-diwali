@@ -8,7 +8,7 @@ import { FaAmazonPay, FaDollarSign, FaWhatsapp } from "react-icons/fa";
 import HeroPrivacyPolicySection from "../components/HeroPrivacyPolicySection";
 import PatternLogo from "../assets/pattern.avif";
 
-export const PrivacyPolicy = () => {
+const PrivacyPolicy = () => {
   return (
     <div className={styles.mainContainer}>
       <HeroPrivacyPolicySection />
@@ -360,3 +360,5 @@ export const PrivacyPolicy = () => {
     </div>
   );
 };
+
+export default PrivacyPolicy;

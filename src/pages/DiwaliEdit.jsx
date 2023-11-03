@@ -9,7 +9,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { customAlphabet } from "nanoid";
 import Modal from "react-awesome-modal";
 
-import DiwaliCard1 from "../assets/diwali_card.jpg";
+import DiwaliCard1 from "../assets/diwali_card1.jpg";
 import DiwaliCard2 from "../assets/diwali_card_2.jpg";
 import DiwaliCard3 from "../assets/diwali_card_3.jpg";
 import DiwaliCard4 from "../assets/diwali_card_4.jpg";
@@ -204,7 +204,6 @@ class DiwaliEdit extends Component {
   render() {
     let max_image = <div></div>;
     if (this.state.isImageSizeError) {
-      console.log("called");
       max_image = (
         <Modal
           style={{ position: "absolute" }}
@@ -288,7 +287,10 @@ class DiwaliEdit extends Component {
                     &#8249;
                   </button>
                   <div className={classes.diwali_card}>
-                    <div id="diwaliCard" className={classes.card_container}>
+                    <div
+                      id="diwaliCard"
+                      className={classes.card_container}
+                    >
                       {this.state.imageBlob && (
                         <div className={classes.user_image_container}>
                           <div className={classes.image_Cont}>
@@ -348,13 +350,14 @@ class DiwaliEdit extends Component {
                           of lights fill our lives.
                         </p>
                       </div>
-                      <div className={classes.send_button}>
-                        <button onClick={this.handleCardShare}>Share</button>
-                        <button onClick={this.handleEdit}>Add Image</button>
-                        <button onClick={this.handleCardDownload}>
-                          Download
-                        </button>
-                      </div>
+                    </div>
+
+                    <div className={classes.send_button}>
+                      <button onClick={this.handleCardShare}>Share</button>
+                      <button onClick={this.handleEdit}>Add Image</button>
+                      <button onClick={this.handleCardDownload}>
+                        Download
+                      </button>
                     </div>
                   </div>
                 </div>

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Ads from "./components/Ads";
+import DiwaliSign from "./components/DiwaliSign";
 
 const Homepage = lazy(() => import("./pages/Home"));
 const Splashpage = lazy(() => import("./pages/Splash"));

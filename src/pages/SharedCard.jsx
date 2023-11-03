@@ -5,7 +5,7 @@ import { ref, getDownloadURL } from "firebase/storage";
 import { db, storage } from "../components/Firebase";
 import { useEffect, useState } from "react";
 
-import DiwaliCard1 from "../assets/diwali_card.jpg";
+import DiwaliCard1 from "../assets/diwali_card1.jpg";
 import DiwaliCard2 from "../assets/diwali_card_2.jpg";
 import DiwaliCard3 from "../assets/diwali_card_3.jpg";
 import DiwaliCard4 from "../assets/diwali_card_4.jpg";
