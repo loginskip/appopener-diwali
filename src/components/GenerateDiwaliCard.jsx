@@ -34,8 +34,10 @@ class GenerateDiwaliCard extends Component {
     return (
       <>
         <div className={classes.logo_container}>
-          <img className={classes.logo} src={logo} alt="Logo" />
-          <p>APPOPENER</p>
+          <a href="https://www.appopener.co.in">
+            <img className={classes.logo} src={logo} alt="Logo" />
+          </a>
+          {/* <a href="https://www.appopener.co.in" >APPOPENER</a> */}
         </div>
         
         <div className={classes.card_form_container}>

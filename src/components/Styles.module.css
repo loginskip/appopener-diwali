@@ -844,7 +844,7 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
 .diwali_page .redirect_box {
   text-align: center;
   position: fixed;
-  bottom: 10px;
+  top: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1041,11 +1041,12 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
   height: 100%;
 }
 .logo_container {
-  padding-top: 3rem;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
   font-family: "Montserrat Alternates";
 }
 .logo_container p {
