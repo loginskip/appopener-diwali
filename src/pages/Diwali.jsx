@@ -44,7 +44,7 @@ class Diwali extends Component {
 
   render() {
     return (
-      <div>
+      
       <div
         className={classes.diwali_page}
         style={{ paddingBottom: "3rem", backgroundColor: "#bde0fe" }}
@@ -55,12 +55,10 @@ class Diwali extends Component {
           <a id="abcd" target="_blank" style={{ cursor: "pointer" }}>
             Click here
           </a>
+            <GoogleAd slot="6109298143" googleAdId="ca-pub-5645705217995911"/>
         </div>
-        
       </div>
       
-          <GoogleAd slot="6109298143" googleAdId="ca-pub-5645705217995911"/>
-      <div/>
       
     );
   }
