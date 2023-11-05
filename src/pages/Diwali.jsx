@@ -57,7 +57,10 @@ class Diwali extends Component {
         </div>
         
       </div>
-      <GoogleAd slot="6109298143" googleAdId="ca-pub-5645705217995911"/>
+      <div>
+          <GoogleAd slot="6109298143" googleAdId="ca-pub-5645705217995911"/>
+      <div/>
+      
     );
   }
 }
